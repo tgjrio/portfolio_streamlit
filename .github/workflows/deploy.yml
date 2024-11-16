@@ -31,9 +31,13 @@ jobs:
     - name: Configure gcloud CLI
       run: |
         gcloud config set project ${{ secrets.GCP_PROJECT_ID }}
-        gcloud config set compute/region us-east1  # Set your preferred region
+        gcloud config set compute/region us-east1  # Set your preferred region if applicable
+
+    - name: List files for debugging
+      run: ls -la
+      # Optional: Uncomment below if you want to see specific files in the root or specific directories
+      # run: ls -la path/to/your/directory
 
     - name: Deploy to Google App Engine
       run: |
-        gcloud app deploy --quiet
-        
+        gcloud app deploy app.yaml --quiet
