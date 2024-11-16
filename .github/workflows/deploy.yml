@@ -31,9 +31,8 @@ jobs:
     - name: Configure gcloud CLI
       run: |
         gcloud config set project ${{ secrets.GCP_PROJECT_ID }}
-        gcloud config set compute/region us-central1  # Set your preferred region
+        gcloud config set compute/region us-east1  # Set your preferred region
 
     - name: Deploy to Google App Engine
       run: |
         gcloud app deploy --quiet
-        
