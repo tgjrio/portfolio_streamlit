@@ -38,6 +38,15 @@ jobs:
       # Optional: Uncomment below if you want to see specific files in the root or specific directories
       # run: ls -la path/to/your/directory
 
+    - name: Check and Create App Engine Application
+      run: |
+        if ! gcloud app describe --project=${{ secrets.GCP_PROJECT_ID }}; then
+          echo "App Engine application does not exist. Creating one..."
+          gcloud app create --project=${{ secrets.GCP_PROJECT_ID }} --region=us-east1
+        else
+          echo "App Engine application already exists."
+        fi
+
     - name: Deploy to Google App Engine
       run: |
         gcloud app deploy app.yaml --quiet
