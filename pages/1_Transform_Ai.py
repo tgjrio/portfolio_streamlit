@@ -24,8 +24,6 @@ st.divider()
 # Introduction
 st.markdown(
     """
-If you’re an analyst, product manager, data scientist, or someone who works with data, you know that transforming data into the desired format can be a complex and often time-consuming task. Data cleaning, restructuring, and creating new fields often involve tedious manual processes that can be prone to errors and inconsistencies. But what if you could automate these transformations quickly and effortlessly?
-
 DataMorph is an AI-powered tool designed to streamline data transformation workflows. By leveraging advanced AI models, it can automatically rename fields, restructure datasets, generate new fields based on custom conditions, and more—all tailored to your specific instructions. With DataMorph, you can focus more on insights and decision-making while reducing the time spent on manual data manipulation.
 
 Simply upload your data, provide your transformation instructions, and let DataMorph handle the rest. Whether you’re preparing datasets for analysis, creating custom reports, or integrating data from multiple sources, DataMorph empowers you to transform your data efficiently and accurately.
@@ -59,4 +57,5 @@ if data is not None:
     st.divider()
 
     # Process data
-    process_data(data, gpt)
+    process_data(data)
+    

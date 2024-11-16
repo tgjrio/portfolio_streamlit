@@ -1,0 +1,38 @@
+name: Deploy to Google App Engine
+
+on:
+  push:
+    branches:
+      - main  # Trigger deployment on pushes to the 'main' branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'  # Ensure this matches your runtime version
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Authenticate to Google Cloud
+      uses: google-github-actions/auth@v1
+      with:
+        credentials_json: ${{ secrets.GCP_SA_KEY }}  # Your GCP service account key stored in GitHub secrets
+
+    - name: Configure gcloud CLI
+      run: |
+        gcloud config set project ${{ secrets.GCP_PROJECT_ID }}
+        gcloud config set compute/region us-central1  # Set your preferred region
+
+    - name: Deploy to Google App Engine
+      run: |
+        gcloud app deploy --quiet

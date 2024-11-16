@@ -1,3 +1,4 @@
 data_morph/
-
+.venv/
 .streamlit/
+.vscode/

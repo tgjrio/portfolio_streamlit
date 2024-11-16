@@ -32,6 +32,6 @@ def display_aggrid_table(df):
     AgGrid(
         df,
         gridOptions=grid_options,
-        height=450,
+        height=350,
         theme='alpine',
     )

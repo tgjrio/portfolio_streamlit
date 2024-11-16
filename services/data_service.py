@@ -9,7 +9,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 def upload_data():
     st.subheader("STEP 1: UPLOAD DATA")
-    uploaded_file = st.file_uploader("Upload a CSV or JSON file: Maximum [20 Rows | 10 Columns]", type=["csv", "json"])
+    uploaded_file = st.file_uploader("Maximum [5 Rows | 5 Columns]", type=["csv", "json"])
 
     if uploaded_file:
         try:
@@ -23,7 +23,7 @@ def upload_data():
                 return None  # Return None to indicate an issue
 
             # Check for number of columns and rows
-            if data.shape[1] > 10 or data.shape[0] > 20:
+            if data.shape[1] > 10 or data.shape[0] > 5:
                 st.error("File exceeds the maximum allowed limit of 10 columns and 20 rows.")
                 return None
 

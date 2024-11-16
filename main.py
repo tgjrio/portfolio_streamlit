@@ -1,7 +1,7 @@
 import streamlit as st
 
 # Profile picture URL
-profile_picture_url = "https://example.com/your-profile-picture.jpg"  # Replace with your image URL
+# profile_picture_url = ""  # Replace with your image URL
 
 # Custom HTML and CSS for layout
 st.markdown(f"""
@@ -79,7 +79,7 @@ st.markdown(f"""
     
     <div class="profile-card">
         <div class="left-section">
-            <img src="{profile_picture_url}" class="profile-picture" alt="Profile Picture">
+            
             <div class="contact-info">
                 <p><strong>Email:</strong> your.email@example.com</p>
                 <p><strong>Phone:</strong> (123) 456-7890</p>
